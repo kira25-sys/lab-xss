@@ -13,8 +13,16 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // URL del webhook de n8n - REEMPLAZA CON TU URL
-    const n8nWebhookUrl = 'https://tu-n8n-instance.com/webhook/contact-form'
+    // URL del webhook de n8n, obtenida desde las variables de entorno
+    const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL
+
+    if (!n8nWebhookUrl) {
+      console.error('Error: La variable de entorno N8N_WEBHOOK_URL no está definida.')
+      return NextResponse.json(
+        { error: 'Error de configuración del servidor' },
+        { status: 500 }
+      )
+    }
     
     // Enviar datos a n8n
     const response = await fetch(n8nWebhookUrl, {

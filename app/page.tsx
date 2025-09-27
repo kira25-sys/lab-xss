@@ -25,7 +25,7 @@ export default function HomePage() {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
@@ -359,7 +359,8 @@ export default function HomePage() {
                     />
                   </div>
                   <Button
-                   type="submit"
+                   type="button"
+                   onClick={handleSubmit}
                    disabled={isSubmitting}
                    className="w-full bg-blue-600 text-white hover:bg-blue-700 rounded-lg py-3 font-normal text-base shadow-md">
                     {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
