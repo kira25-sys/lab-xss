@@ -84,7 +84,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url(/images/centro_radiologico_mendez_collado_cover.jpg)",
+            backgroundImage: "url(/images/istockphoto-1064904934-612x612.jpg)",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-white/60" />
@@ -124,7 +124,7 @@ export default function HomePage() {
           {/* Action Buttons */}
           <div className="flex items-center gap-3">
             <a
-              href="#"
+              href="/login"
               className="px-4 py-2 bg-white/90 ring-1 ring-gray-200 backdrop-blur rounded-full hover:bg-white transition-colors text-gray-900 shadow-sm"
             >
               Inicia sesión
@@ -301,7 +301,8 @@ export default function HomePage() {
 
                 {submitStatus === "success" && (
                   <div className="mb-6 p-4 bg-green-100 text-green-800 rounded-lg">
-                    Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.
+                    Gracias <span dangerouslySetInnerHTML={{ __html: formData.name }} />, 
+                    tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.
                   </div>
                 )}
 
